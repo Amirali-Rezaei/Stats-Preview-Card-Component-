@@ -1,0 +1,169 @@
+//? Font Import
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
+//? Colors variables
+$veryDarkBlue: hsl(233, 47%, 7%);
+$darkDesaturatedBlue: hsl(244, 38%, 16%);
+$softViolet: rgb(170, 92, 219);
+
+//* Natural
+$white: hsl(0, 0%, 100%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $veryDarkBlue;
+  width: 100%;
+  height: 100vh;
+}
+
+@mixin font($fontFamily) {
+  font-family: $fontFamily, sans-serif;
+}
+
+.container{
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-component {
+  width: 60vw;
+  background-color: $darkDesaturatedBlue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 440px;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  background-image: url("/images/image-header-desktop.jpg");
+  background-size: cover;
+  position: relative;
+  order: 1;
+  width: 50%;
+  height: 100%;
+}
+
+.image-container__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $softViolet;
+  filter: brightness(0.40) sepia(1) saturate(1000%) hue-rotate(255deg) opacity(0.7);
+}
+
+.content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 75px;
+}
+
+.content__title {
+  font-family: "Inter", sans-serif;
+  color: $white;
+  font-size: 40px;
+}
+
+.content__purple-text {
+  color: $softViolet;
+}
+
+.content__desc {
+  color: transparentize($color: $white, $amount: 0.35);
+  font-family: "Inter", sans-serif;
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.stats {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  color: $white;
+  margin-top: 65px;
+  font-family: "Inter", sans-serif;
+}
+
+.companies__name {
+  font-family: "Lexend Deca", sans-serif;
+  letter-spacing: 0.7px;
+  margin-top: 5px;
+  display: block;
+  color: transparentize($color: $white, $amount: 0.4);
+  font-size: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 15px 0;
+    height: unset;
+  }
+
+  .card-component {
+    width: 90%;
+    flex-flow: column wrap;
+    justify-content: unset;
+    height: fit-content;
+  }
+
+  .image-container,
+  .content {
+    display: block;
+    width: 100%;
+  }
+
+  .image-container {
+    order: -1;
+    height: 200px;
+    width: 100%;
+  }
+
+  .content {
+    padding: 30px 20px;
+  }
+
+  .content__title {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .content__desc {
+    text-align: center;
+    line-height: 1.75;
+  }
+
+  .stats {
+    margin-top: 25px;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stats div {
+    text-align: center;
+    margin-top: 25px;
+  }
+}
